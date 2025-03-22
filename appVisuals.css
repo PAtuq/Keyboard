@@ -1,0 +1,67 @@
+*{
+    background: white;
+}
+
+.header{
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    border-style: solid;
+    background-color: red;
+}
+
+h1{
+    background-color: red;
+    color: white;
+}
+
+.mainPanel{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+#textToType{
+    color: red;
+}
+
+form{
+    margin: auto;
+    height: 100px;
+    width: 60%;
+    min-height: 100px;
+}
+
+input{
+    height: 50%;
+    width: 100%;
+    background-color: blanchedalmond;
+}
+
+button
+{
+    width: 50px;
+    height: 30px;
+}
+
+#spaceButton
+{
+    width: 300px;
+}
+
+.userStats
+{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.audioElements
+{
+    visibility: hidden;
+}
+
+.footer
+{
+    text-align: center;
+}

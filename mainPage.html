@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title> Keyboard Test </title>
+  <link rel="stylesheet" type="text/css" href="appVisuals.css" title="style" /> 
+  <script src="appClient.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body onload="init()">
+
+<div class = "menu">
+
+    <div class = "header">
+        <h1> EECS4441 Keyboard with Audial Feedback Test </h1>
+    </div>
+    <hr>
+
+    <div class = mainPanel>
+
+        <!--Text entry and display-->
+        <h2>Text to enter: <span id="textToType">The Quick Brown Fox Jumps Over The Lazy Dog</span></h2>
+        <form id="textEntry" autocomplete="off"  onsubmit="return false">
+            <label for="entryLabel">Enter Text Here:</label>
+            <input type="text" id="textBox" name="textBox"><br><br>
+        </form>
+        <!--QUERTY keyboard-->  
+        <div class="keyboard">
+            <!--<div class="tile100" id="tile100"></div>-->
+            <button id="qButton" onclick="keyClick('Q', 'consonant')">Q</button>
+            <button id="wButton" onclick="keyClick('W', 'consonant')">W</button>
+            <button id="eButton" onclick="keyClick('E', 'vowel')">E</button>
+            <button id="rButton" onclick="keyClick('R', 'consonant')">R</button>
+            <button id="tButton" onclick="keyClick('T', 'consonant')">T</button>
+            <button id="yButton" onclick="keyClick('Y', 'vowel')">Y</button>
+            <button id="uButton" onclick="keyClick('U', 'vowel')">U</button>
+            <button id="iButton" onclick="keyClick('I', 'vowel')">I</button>
+            <button id="oButton" onclick="keyClick('O', 'vowel')">O</button>
+            <button id="pButton" onclick="keyClick('P', 'consonant')">P</button>
+            <button id="backspaceButton" onclick="keyClick('Bksp', 'backspace')">Bksp</button>
+            <br>
+            <button id="aButton" onclick="keyClick('A', 'vowel')">A</button>
+            <button id="sButton" onclick="keyClick('S', 'consonant')">S</button>
+            <button id="dButton" onclick="keyClick('D', 'consonant')">D</button>
+            <button id="fButton" onclick="keyClick('F', 'consonant')">F</button>
+            <button id="gButton" onclick="keyClick('G', 'consonant')">G</button>
+            <button id="hButton" onclick="keyClick('H', 'consonant')">H</button>
+            <button id="jButton" onclick="keyClick('J', 'consonant')">J</button>
+            <button id="kButton" onclick="keyClick('K', 'consonant')">K</button>
+            <button id="lButton" onclick="keyClick('L', 'consonant')">L</button>
+            <button id="enterButton" onclick="keyClick('Enter', 'enter')">Enter</button>
+            <br>
+            <button id="zButton" onclick="keyClick('Z', 'consonant')">Z</button>
+            <button id="xButton" onclick="keyClick('X', 'consonant')">X</button>
+            <button id="cButton" onclick="keyClick('C', 'consonant')">C</button>
+            <button id="vButton" onclick="keyClick('V', 'consonant')">V</button>
+            <button id="bButton" onclick="keyClick('B', 'consonant')">B</button>
+            <button id="nButton" onclick="keyClick('N', 'consonant')">N</button>
+            <button id="mButton" onclick="keyClick('M', 'consonant')">M</button>
+            <button id="commaButton" onclick="keyClick(',', 'punctuation')">,</button>
+            <button id="periodButton" onclick="keyClick('.', 'punctuation')">.</button>
+            <br>
+            <button id="spaceButton" onclick="keyClick('space', 'space')">space</button>
+        </div>
+    </div> 
+
+    <hr>
+    <div class="userStats">
+        <h2>User statistics:</h2>
+        <h3>Tests completed : <span id="testNumber">0</span></h3>
+        <h3>Correctness : <span id="correct?">submit some text</span></h3>
+        <h3>WPM : <span id="wordsPerMinute">submit some text</span></h3>
+        <h3>Accuracy : <span id="accuracy">submit some text</span></h3>
+    </div>
+    <hr>
+
+    <div class = "footer">
+        <p> &copy;Authors of this webpage: Landon Navarre, Carlo Montano Campillo, Amin Jeddi, Yinkan Chen.<br> Department of Electrical Engineering and Computer Science, Lassonde School of Engineering, York University </p>
+    </div>
+</div> 
+
+</body>
+
+<!--Audio elements-->
+<div class="audioElements">
+    <!------------------------------------------------------------Vowel Audio---------------------------------------------------------------------------------->
+    <audio controls id="aAudio">
+        <source src="audio_feedback/vowel/aBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="eAudio">
+        <source src="audio_feedback/vowel/eBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="iAudio">
+        <source src="audio_feedback/vowel/iBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="oAudio">
+        <source src="audio_feedback/vowel/oBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="uAudio">
+        <source src="audio_feedback/vowel/uBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="yAudio">
+        <source src="audio_feedback/vowel/yBeep.mp3" type="audio/mpeg">
+    </audio>
+    <!------------------------------------------------------------Consonant Audio------------------------------------------------------------------------------>
+    <audio controls id="bAudio">
+        <source src="audio_feedback/consonant/bBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="cAudio">
+        <source src="audio_feedback/consonant/cBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="dAudio">
+        <source src="audio_feedback/consonant/dBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="fAudio">
+        <source src="audio_feedback/consonant/fBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="gAudio">
+        <source src="audio_feedback/consonant/gBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="hAudio">
+        <source src="audio_feedback/consonant/hBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="jAudio">
+        <source src="audio_feedback/consonant/jBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="kAudio">
+        <source src="audio_feedback/consonant/kBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="lAudio">
+        <source src="audio_feedback/consonant/lBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="mAudio">
+        <source src="audio_feedback/consonant/mBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="nAudio">
+        <source src="audio_feedback/consonant/nBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="pAudio">
+        <source src="audio_feedback/consonant/pBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="qAudio">
+        <source src="audio_feedback/consonant/qBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="rAudio">
+        <source src="audio_feedback/consonant/rBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="sAudio">
+        <source src="audio_feedback/consonant/sBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="tAudio">
+        <source src="audio_feedback/consonant/tBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="vAudio">
+        <source src="audio_feedback/consonant/vBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="wAudio">
+        <source src="audio_feedback/consonant/wBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="xAudio">
+        <source src="audio_feedback/consonant/xBeep.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="zAudio">
+        <source src="audio_feedback/consonant/zBeep.mp3" type="audio/mpeg">
+    </audio>
+    <!------------------------------------------------------------Misc Audio------------------------------------------------------------------------------>
+    <audio controls id="punctuationAudio">
+        <source src="audio_feedback/backspace/backspaceClick.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="backspaceAudio">
+        <source src="audio_feedback/backspace/backspaceClick.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls id="spaceAudio">
+        <source src="audio_feedback/space/spaceClick.mp3" type="audio/mpeg">
+    </audio>
+
+</div>
+
+</html>

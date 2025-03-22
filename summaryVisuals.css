@@ -1,0 +1,23 @@
+.header{
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    border-style: solid;
+    background-color: red;
+}
+
+h1{
+    background-color: red;
+    color: white;
+}
+
+.summary{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.footer
+{
+    text-align: center;
+}
