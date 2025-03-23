@@ -325,6 +325,10 @@ function createSummary()
     mutedResSpan.textContent = localStorage.getItem("muteSettingRes");
     reverseResSpan.textContent = localStorage.getItem("reverseSettingRes");
 
+    localStorage.setItem("blindVal", 0);
+    localStorage.setItem("soundVal", 0);
+    localStorage.setItem("reverseVal", 0);
+
 }
 
 /*Initializing the app, this function is called when the main (i.e., test) page loads. Handles:
