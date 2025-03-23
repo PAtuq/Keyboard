@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Keyboard Test </title>
+    <link rel="stylesheet" type="text/css" href="startVisuals.css" title="style" /> 
+    <script src="appClient.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class = "header">
+        <h1> EECS4441 Keyboard with Audial Feedback Test </h1>
+    </div>
+
+    <hr>
+
+    <div class="introduction">
+        <h2>Introduction</h2>
+        <p>
+            This is a web-app built to conduct experiments on the possible benefits of differentiated audio feedback in keyboards.
+        </p>
+
+        <ol id="instructions">
+            <li>This is a typical typing test, of the type you might find online.</li>
+            <li>It will consist of 5 sentences that you must type.</li>
+            <li>You will have been asked to begin either using your own, i.e., physical keyboard, or our built-in soft keyboard. If you are participating in our experiment, we ask that you use your physical keyboard</li>
+            <li>Read the instructions and important notes below, and when ready to begin, click the start button to move to the test page.</li>
+        </ol>
+
+        <h2>Instructions for those participating in our experiment</h2>
+        <ol id="experimentInstructions">
+            <li>Firstly, read the general instructions above, in the introduction.</li>
+            <li>You will have been asked to complete the test four times under one of two condition-groups, either: <br></li>
+            (A) : Forward order<br>
+            (B) : Reverse order<br>
+            <li>If you've been assigned to the "Reverse order", the "reverse-order" checkbox should be checked for <b>all</b> of the tets you complete</li>
+            <li>If you've been assigned to either reverse-order condion, check the "Reverse order" box before starting.</li>
+            <li>Regardless, you will complete the test four times.</li>
+            <li>  - For the first test, check the "Mute audio feedback" checkbox.</li>
+            <li>  - For the second test, both "Blind mode" and "Mute audio feedback should be <b>checked</b>.</li>
+            <li>  - For the third test, both "Blind mode" and "Mute audio feedback should be <b>unchecked</b>.</li>
+            <li>  - For the fourth test, "Blind mode" should be checked, but "Mute audio feedback" should remain unchecked.</li>
+            <li>  - In summary, the conditions are <b>(no audio, vision)</b> -> <b>(no audio, blind)</b> -> <b>(audio -> vision)</b> -> <b>(audio, blind)</b>.</li>
+            <li>At the end of a test, you will be provided a summary of your results. Please report this summary to whoever asked you to participate (A screenshot, photo, written recordings of all values... So long as we get it)</li>
+            <li>You have finished when you have completed the test four times, under each of the above four conditions, and have reported to us the 4 results. We thank you for your participation.</li>
+        </ol>
+
+        <h2>Some important notes</h2>
+        <ol>
+            <li>The test is not case-sensitive.</li>
+            <li>You will have to select, i.e., click the input-box at the very start of each test. You will not have to re-select it for every sentence, just start typing as soon as a new sentence is presented. </li>
+            <li>Your speed (WPM) is tracked by a timer. This timer resets as soon as a new sentence is presented. Thereby, you are expected to complete each 5-sentence test in one burst, without resting between sentences. You are free, of course, to rest between the four tests.</li>
+            <li>The setting variables are stored in your browser. Thereby, when starting a new test it's possible to carry-over settings from an old test. Between tests, close your browser and restart the app. You can also "fix" your settings by fist checking and unchecking each box, before checking the boxes/settings you need.</li>
+            <li>If you have any issues, do not share the results of that test with us. Rather, let whoever assigned you this test know and they will help you.</li>
+        </ol>
+
+        <h2>Settings</h2>
+        <div class="Settings">
+            Blind mode : <input type="checkbox" id="blindSetting" onclick="setBlind()">
+            <br>
+            Mute audio feedback : <input type="checkbox" id="soundSetting" onclick="setSound()">
+            <br>
+            Reverse test order : <input type="checkbox" id="reverseSetting" onclick="setOrder()">
+        </div>
+    </div>
+
+    <div class="startDiv">
+        <button id="startButton" onclick="location.href='mainPage.html'" type="button">Start</button>
+    </div>
+
+    <hr>
+
+    <div class = "footer">
+        <p> &copy;Authors of this webpage: Landon Navarre, Carlo Montano Campillo, Amin Jeddi, Yinkan Chen.<br> Department of Electrical Engineering and Computer Science, Lassonde School of Engineering, York University </p>
+    </div>
+</body>
+
+</html>

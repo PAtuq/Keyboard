@@ -68,6 +68,11 @@ function keyClick(s, type)
             console.log(results[3][0] + ", " + results [3][1] + ", " + results[3][2] + ", " + results[3][3]);
             console.log(results[4][0] + ", " + results [4][1] + ", " + results[4][2] + ", " + results[4][3]);
             localStorage.setItem("results", JSON.stringify(results));
+
+            localStorage.setItem("blindSettingRes", blind);
+            localStorage.setItem("muteSettingRes", muted);
+            localStorage.setItem("reverseSettingRes", reverse);
+
             location.assign("summaryPage.html");
         }
         testNum++;
@@ -310,6 +315,16 @@ function createSummary()
     correctSpan.textContent = "Total correct : " + totalCorrect + "/" + totalExpected;
     wpmSpan.textContent = "Average WPM : " + avgWPM.toFixed(2);
     accSpan.textContent = "Average accuracy : " + avgAcc.toFixed(2);
+
+    //Informing us of what settings the test was completed under
+    var blindResSpan = document.getElementById("blindSettingSpan");
+    var mutedResSpan = document.getElementById("mutedSettingSpan");
+    var reverseResSpan = document.getElementById("reverseSettingSpan");
+
+    blindResSpan.textContent = localStorage.getItem("blindSettingRes");
+    mutedResSpan.textContent = localStorage.getItem("muteSettingRes");
+    reverseResSpan.textContent = localStorage.getItem("reverseSettingRes");
+
 }
 
 /*Initializing the app, this function is called when the main (i.e., test) page loads. Handles:
@@ -490,6 +505,11 @@ function init()
                     console.log(results[3][0] + ", " + results [3][1] + ", " + results[3][2] + ", " + results[3][3]);
                     console.log(results[4][0] + ", " + results [4][1] + ", " + results[4][2] + ", " + results[4][3]);
                     localStorage.setItem("results", JSON.stringify(results));
+
+                    localStorage.setItem("blindSettingRes", blind);
+                    localStorage.setItem("muteSettingRes", muted);
+                    localStorage.setItem("reverseSettingRes", reverse);
+
                     location.assign("summaryPage.html");
                 }
                 testNum++;
